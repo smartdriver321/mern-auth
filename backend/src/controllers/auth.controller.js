@@ -90,3 +90,10 @@ export const verifyEmail = async (req, res) => {
 		res.status(500).json({ success: false, message: 'Server error' })
 	}
 }
+
+export const signOut = (req, res) => {
+	res.clearCookie('token')
+	res
+		.status(200)
+		.json({ success: true, message: ' You are logged out successfully' })
+}
