@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
 
 import { connectToDB } from './db/connectToDB.js'
 import authRoute from './routes/auth.route.js'
@@ -14,6 +15,7 @@ app.get('/health', (req, res) => {
 	res.send('App is healthy')
 })
 
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }))
 app.use(express.json()) // allows us to parse incoming requests:req.body
 app.use(cookieParser()) // allows us to parse incoming cookies
 
