@@ -1,10 +1,10 @@
 {
 	"name": "backend",
 	"version": "1.0.0",
-	"main": "src/index.js",
+	"main": "backend/src/index.js",
 	"scripts": {
-		"dev": " nodemon src/index.js",
-		"start": "N node src/index.js",
+		"dev": "NODE_ENV=development nodemon backend/src/index.js",
+		"start": "NODE_ENV=production node backend/src/index.js",
 		"build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
 	},
 	"keywords": [],
