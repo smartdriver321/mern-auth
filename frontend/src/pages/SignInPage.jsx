@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Mail, Lock } from 'lucide-react'
+import { Mail, Lock, Loader } from 'lucide-react'
 import { motion } from 'framer-motion'
 
+import { useAuthStore } from '../store/authStore'
 import Input from '../components/Input'
 
 export default function SignInPage() {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
-	const handleSignIn = (e) => {
+	const { useSignIn, error, isLoading } = useAuthStore()
+
+	const handleSignIn = async (e) => {
 		e.preventDefault()
+		await useSignIn(email, password)
 	}
 
 	return (
@@ -51,13 +55,20 @@ export default function SignInPage() {
 						</Link>
 					</div>
 
+					{error && <p className='text-red-500 font-semibold mb-2'>{error}</p>}
+
 					<motion.button
 						whileHover={{ scale: 1.02 }}
 						whileTap={{ scale: 0.98 }}
 						className='w-full py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-lg shadow-lg hover:from-green-600 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition duration-200'
 						type='submit'
+						disabled={isLoading}
 					>
-						Sign In
+						{isLoading ? (
+							<Loader className='w-6 h-6 animate-spin  mx-auto' />
+						) : (
+							'Sign In'
+						)}{' '}
 					</motion.button>
 				</form>
 			</div>

@@ -13,6 +13,7 @@ export default [
 			'no-unused-vars': 'error',
 			'no-duplicate-imports': 'warn',
 			'require-await': 'warn',
+			'react/prop-types': 'off',
 		},
 	},
 ]
