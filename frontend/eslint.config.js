@@ -13,13 +13,6 @@ export default [
 			'no-unused-vars': 'error',
 			'no-duplicate-imports': 'warn',
 			'require-await': 'warn',
-			'react/prop-types': 'off',
-			'react/no-unescaped-entities': 'off',
-			'react/jsx-no-target-blank': 'off',
-			'react-refresh/only-export-components': [
-				'warn',
-				{ allowConstantExport: true },
-			],
 		},
 	},
 ]
