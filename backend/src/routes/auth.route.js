@@ -1,6 +1,7 @@
 import express from 'express'
 
 import {
+	forgotPassword,
 	signIn,
 	signOut,
 	signUp,
@@ -10,8 +11,10 @@ import {
 const router = express.Router()
 
 router.post('/sign-up', signUp)
-router.post('/verify-email', verifyEmail)
 router.post('/sign-in', signIn)
 router.post('/sign-out', signOut)
+
+router.post('/verify-email', verifyEmail)
+router.post('/forgot-password', forgotPassword)
 
 export default router
