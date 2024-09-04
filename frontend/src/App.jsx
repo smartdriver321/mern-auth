@@ -8,6 +8,7 @@ import SignUpPage from './pages/SignUpPage'
 import SignInPage from './pages/SignInPage'
 import EmailVerificationPage from './pages/EmailVerificationPage'
 import ForgotPasswordPage from './pages/ForgotPasswordPage'
+import ResetPasswordPage from './pages/ResetPasswordPage'
 import FloatingShape from './components/FloatingShape'
 import LoadingSpinner from './components/LoadingSpinner'
 
@@ -104,6 +105,15 @@ export default function App() {
 					element={
 						<RedirectAuthenticatedUser>
 							<ForgotPasswordPage />
+						</RedirectAuthenticatedUser>
+					}
+				/>
+
+				<Route
+					path='/reset-password/:token'
+					element={
+						<RedirectAuthenticatedUser>
+							<ResetPasswordPage />
 						</RedirectAuthenticatedUser>
 					}
 				/>
