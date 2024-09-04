@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { Toaster } from 'react-hot-toast'
 
 import SignUpPage from './pages/SignUpPage'
 import SignInPage from './pages/SignInPage'
@@ -42,6 +43,7 @@ export default function App() {
 
 				<Route />
 			</Routes>
+			<Toaster />
 		</div>
 	)
 }
