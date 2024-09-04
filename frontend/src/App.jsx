@@ -7,6 +7,7 @@ import DashboardPage from './pages/DashboardPage'
 import SignUpPage from './pages/SignUpPage'
 import SignInPage from './pages/SignInPage'
 import EmailVerificationPage from './pages/EmailVerificationPage'
+import ForgotPasswordPage from './pages/ForgotPasswordPage'
 import FloatingShape from './components/FloatingShape'
 import LoadingSpinner from './components/LoadingSpinner'
 
@@ -81,7 +82,6 @@ export default function App() {
 						</ProtectedRoute>
 					}
 				/>
-
 				<Route
 					path='/sign-up'
 					element={
@@ -90,7 +90,6 @@ export default function App() {
 						</RedirectAuthenticatedUser>
 					}
 				/>
-
 				<Route
 					path='/sign-in'
 					element={
@@ -100,8 +99,17 @@ export default function App() {
 					}
 				/>
 				<Route path='/verify-email' element={<EmailVerificationPage />} />
+				<Route
+					path='/forgot-password'
+					element={
+						<RedirectAuthenticatedUser>
+							<ForgotPasswordPage />
+						</RedirectAuthenticatedUser>
+					}
+				/>
 
-				<Route />
+				{/* catch all routes */}
+				<Route path='*' element={<Navigate to='/' replace />} />
 			</Routes>
 			<Toaster />
 		</div>
