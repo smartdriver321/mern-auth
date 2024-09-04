@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import SignUpPage from './pages/SignUpPage'
+import SignInPage from './pages/SignInPage'
 import FloatingShape from './components/FloatingShape'
 
 export default function App() {
@@ -35,6 +36,8 @@ export default function App() {
 			<Routes>
 				<Route path='/' element={'Home'} />
 				<Route path='/sign-up' element={<SignUpPage />} />
+				<Route path='/sign-in' element={<SignInPage />} />
+
 				<Route />
 			</Routes>
 		</div>
